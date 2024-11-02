@@ -1,3 +1,95 @@
+* {
+  font-family: "Itim", sans-serif;
+}
+
 body {
-    background-color: rebeccapurple;
-  }
+  margin: 0;
+  background-color: cornsilk;
+}
+
+/* Header Open */
+
+#header {
+  background-color: cornflowerblue;
+  color:  white;
+  box-shadow: 0px 15px 20px -20px rgba(0,0,0,0.45);
+
+  padding: 16px 32px;
+  width: calc(100vw - 64px);
+
+  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#header h1 {
+  font-size: 46px;
+}
+
+#location-input {
+  font-size: 24px;
+  padding: 8px;
+}
+
+#location-submit-btn {
+  cursor: pointer;
+  font-size: 24px;
+  padding: 8px;
+
+  width: 60px;
+  height: 60px;
+
+  border: 0;
+  background-color: white;
+
+  border-radius: 50%;
+}
+#location-submit-btn:hover {
+  color: cornflowerblue;
+}
+
+/* Header Close */
+
+/* Main Open */
+
+#main {
+
+  width: 80vw;
+  min-height: 70vh;
+  margin: auto;
+  margin-bottom: 16px;
+}
+
+#days-table {
+  border-collapse: collapse;
+
+  width: 100%;
+  box-shadow: 0px -25px 20px -20px rgba(0, 0, 0, 0.45), 25px 0 20px -20px rgba(0, 0, 0, 0.45), 0px 25px 20px -20px rgba(0, 0, 0, 0.45), -25px 0 20px -20px rgba(0, 0, 0, 0.45);
+}
+
+#days-table thead {
+  color: white;
+  background-color: cornflowerblue;
+  
+}
+
+#days-table th, td {
+  border: 3px solid black;
+  box-sizing: border-box;
+
+  padding: 8px;
+  overflow-x: scroll;
+  max-width: 20vw;
+  
+  font-size: 24px;
+}
+#days-table tbody tr {
+  background-color: white;
+}
+
+#days-table tbody tr:nth-child(even) {
+  background-color: #d6d6d6;
+}
+
+/* Main Close */

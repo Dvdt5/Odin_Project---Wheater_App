@@ -89,7 +89,7 @@ body {
 }
 
 #days-table tbody tr:nth-child(even) {
-  background-color: #d6d6d6;
+  background-color: #e6e6e6;
 }
 
 /* Main Close */

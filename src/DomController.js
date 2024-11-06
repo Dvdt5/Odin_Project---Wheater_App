@@ -8,15 +8,24 @@ class DomElements {
 
         const daysTable = document.getElementById("days-table");
         const daysTableDataContainer = document.getElementById("days-table-data-container");
-
+        const tableDesc = document.getElementById("page-info");
+        const loading = document.getElementById("loading-screen");
 
         daysTableDataContainer.innerHTML = "";
 
         let data = [];
 
         getWheaterData().then(response => {
+            if (response.length === 0){
+                tableDesc.textContent = 'Something went wrong. Please check for mistype...';
+                loading.style.display = "none";
+                
+            }
+            else
+            {
+
             data = response.days;
-            console.log(data)
+            tableDesc.textContent = `Results for ${document.getElementById("location-input").value}...`;
 
             data.forEach(day => {
                 const dataRow = document.createElement("tr");
@@ -30,8 +39,9 @@ class DomElements {
                     <td>${day.humidity}</td>
                 `;
                 daysTableDataContainer.appendChild(dataRow);
+                loading.style.display = "none";
             });
-
+            }
         });
     }
 }

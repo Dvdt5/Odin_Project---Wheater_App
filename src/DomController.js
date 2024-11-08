@@ -1,6 +1,10 @@
 import { getWheaterData } from "./getData";
-
-
+import rainyImg from ".//imgs/rainy.png";
+import sunnyImg from ".//imgs/sunny.png";
+import partlyCloudyImg from ".//imgs/partly-cloud.png";
+import snowyImg from ".//imgs/snowy.png";
+import cloudyImg from ".//imgs/cloudy.png";
+import windyImg from ".//imgs/windy.png";
 
 class DomElements {
     
@@ -26,6 +30,7 @@ class DomElements {
 
             data = response.days;
             tableDesc.textContent = `Results for ${document.getElementById("location-input").value}...`;
+            console.log(data);
 
             data.forEach(day => {
                 const dataRow = document.createElement("tr");
@@ -38,6 +43,41 @@ class DomElements {
                     <td>${day.description}</td>
                     <td>${day.humidity}</td>
                 `;
+
+                const creat = document.createElement("img");
+                switch (day.icon){
+
+                    case ("clear-day"):
+                        creat.src = sunnyImg;
+                        break;
+                    
+                    case ("cloudy"):
+                        creat.src = cloudyImg;
+                        break;
+                    
+                    case ("rain"):
+                        creat.src = rainyImg;
+                        break;
+
+                    case ("partly-cloudy-day"):
+                        creat.src = partlyCloudyImg;
+                        break;
+
+                    case ("snow"):
+                        creat.src = snowyImg;
+                        break;
+
+                    default:
+                        creat.alt = "No-icon-found";
+                        break;
+                    
+                }
+
+                var elements = dataRow.children;
+                elements.item(4).style.backgroundColor = "gray";
+                elements.item(4).style.textAlign = "center";
+                elements.item(4).appendChild(creat);
+
                 daysTableDataContainer.appendChild(dataRow);
                 loading.style.display = "none";
             });
